@@ -32,6 +32,25 @@ Este repositório contém scripts para automação de backups e restaurações d
 - Apaga ou substitui base anterior
 
 ---
+# 🧪 Script: copiar_ultimo_backup_para_destino.bat
+
+Este script localiza e copia automaticamente os arquivos `.fbk` mais recentes de dois bancos de dados (ex: `MENTOR` e `NFE`) para um diretório local, apagando versões anteriores antes da cópia.
+
+## 🔧 Parâmetros configuráveis
+
+- `ORIGEM`: Pasta de origem dos backups `.fbk` (compartilhada ou local)
+- `DESTINO`: Pasta de destino local (ex: pasta sincronizada com OneDrive)
+- `DB1`, `DB2`: Prefixos dos nomes dos arquivos de backup
+
+## 🧰 Requisitos
+
+- Permissão de leitura no caminho remoto
+- Permissão de gravação no caminho local
+- Caminhos **sem aspas externas**
+- Agendamento via Task Scheduler recomendado
+
+---
+
 
 ## ⏰ Agendamento da tarefa no Windows
 
@@ -53,8 +72,10 @@ Para rodar o script automaticamente:
 
 /scripts
   ├── backup/backup_database.bat
+  ├── backup/copiar_ultimo_backup_para_destino.bat
   ├── restore/restore_last_backup.bat
-  └── utils/exemplo_agendamento.md
+  ├──  utils/exemplo_agendamento.md
+  
 
 ## 🛡️ Observações
 Nunca restaure uma base em uso
